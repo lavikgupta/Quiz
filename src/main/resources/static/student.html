@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz System - Student Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-small">Q</div>
+            <span>QuizMaster</span>
+        </div>
+        <div class="nav-user">
+            <span id="welcomeUser">Welcome, Student</span>
+            <span id="userBranchBadge" class="btn btn-sm btn-outline" style="pointer-events: none;">Branch: N/A</span>
+            <button onclick="logout()" class="btn btn-outline btn-sm">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <!-- Dashboard View -->
+        <div id="studentDashboard" class="card">
+            <h2>Student Dashboard</h2>
+            <p>Welcome to your quiz dashboard. Select a subject below to start your quiz.</p>
+            
+            <div id="subjectList" class="options-grid mt-4 mb-4">
+                <!-- Subjects will be loaded here -->
+            </div>
+
+            <div class="dashboard-actions mt-4">
+                <button onclick="viewMyResults()" class="btn btn-secondary btn-lg">View My Results</button>
+            </div>
+            
+            <div id="myResultsSection" style="display: none; margin-top: 2rem;">
+                <h3>My Previous Results</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Attempt</th>
+                                <th>Subject</th>
+                                <th>Score</th>
+                                <th>Total Questions</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsTableBody">
+                            <!-- Results will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz View -->
+        <div id="quizView" class="card" style="display: none;">
+            <div class="quiz-header">
+                <h2>Ongoing Quiz</h2>
+                <div class="timer" id="timer">Time Left: 10:00</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="quizProgress" style="width: 0%"></div>
+            </div>
+
+            <div id="questionContainer" class="question-container">
+                <!-- Questions will be injected here -->
+            </div>
+
+            <div class="quiz-footer">
+                <button onclick="submitQuiz()" class="btn btn-success btn-lg">Submit Quiz</button>
+            </div>
+        </div>
+
+        <!-- Result View -->
+        <div id="resultView" class="card result-card" style="display: none;">
+            <div class="result-icon">🎉</div>
+            <h2>Quiz Completed!</h2>
+            <div class="score-display">
+                <span id="finalScore">0</span> / <span id="finalTotal">0</span>
+            </div>
+            <p class="score-percentage" id="scorePercentage">0%</p>
+            <button onclick="backToDashboard()" class="btn btn-primary mt-4">Back to Dashboard</button>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Check authentication
+        if (!isLoggedIn() || getUserRole() !== 'STUDENT') {
+            window.location.href = 'index.html';
+        }
+        document.getElementById('welcomeUser').textContent = 'Welcome, ' + getUsername();
+        document.getElementById('userBranchBadge').textContent = 'Branch: ' + getUserBranch();
+        
+        // Initial load
+        loadSubjects();
+    </script>
+</body>
+</html>

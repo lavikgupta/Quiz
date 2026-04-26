@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.online_quiz.OnlineQuizApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-26T09:07:46.113Z" hostname="LAPTOP-T95NDBKM" time="2.155">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.example.online_quiz.OnlineQuizApplicationTests" time="0.615"/>
+  <system-out><![CDATA[14:37:46.287 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.online_quiz.OnlineQuizApplicationTests]: OnlineQuizApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:37:46.417 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.online_quiz.OnlineQuizApplication for test class com.example.online_quiz.OnlineQuizApplicationTests
+14:37:46.496 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.online_quiz.OnlineQuizApplicationTests]: OnlineQuizApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:37:46.497 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.online_quiz.OnlineQuizApplication for test class com.example.online_quiz.OnlineQuizApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-04-26T14:37:46.751+05:30  INFO 32452 --- [online-quiz] [    Test worker] c.e.o.OnlineQuizApplicationTests         : Starting OnlineQuizApplicationTests using Java 24.0.2 with PID 32452 (started by ASUS in D:\antigravity1\online-quiz)
+2026-04-26T14:37:46.752+05:30  INFO 32452 --- [online-quiz] [    Test worker] c.e.o.OnlineQuizApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2026-04-26T14:37:47.304+05:30  INFO 32452 --- [online-quiz] [    Test worker] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page: class path resource [static/index.html]
+2026-04-26T14:37:47.641+05:30  INFO 32452 --- [online-quiz] [    Test worker] c.e.o.OnlineQuizApplicationTests         : Started OnlineQuizApplicationTests in 1.094 seconds (process running for 2.272)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.17.8\f09415827a71be7ed621c7bd02550678f28bc81c\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

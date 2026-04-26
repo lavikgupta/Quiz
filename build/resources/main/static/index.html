@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz System - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-card">
+            <div class="brand">
+                <div class="logo">Q</div>
+                <h1>QuizMaster</h1>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active-form">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" required placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <div class="error-msg" id="loginError"></div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" required placeholder="Choose a username">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required placeholder="Choose a password">
+                </div>
+                <div class="form-group">
+                    <label for="regRole">Register as</label>
+                    <select id="regRole" onchange="toggleBranchField()">
+                        <option value="STUDENT">Student</option>
+                        <option value="ADMIN">Admin</option>
+                    </select>
+                </div>
+                <div class="form-group" id="branchGroup" style="display: none;">
+                    <label for="regBranch">BTech Branch</label>
+                    <select id="regBranch">
+                        <option value="CSE">Computer Science and Engineering (CSE)</option>
+                        <option value="ECE">Electronics and Communication Engineering (ECE)</option>
+                        <option value="ME">Mechanical Engineering (ME)</option>
+                        <option value="CE">Civil Engineering (CE)</option>
+                        <option value="EE">Electrical Engineering (EE)</option>
+                        <option value="IT">Information Technology (IT)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="subjectGroup" style="display: none;">
+                    <label for="regSubject">Teaching Subject (Admin Only)</label>
+                    <input type="text" id="regSubject" placeholder="Enter Subject (e.g., Java)">
+                </div>
+                <div class="form-group" id="adminPasswordGroup" style="display: none;">
+                    <label for="regAdminPassword">Admin Password</label>
+                    <input type="password" id="regAdminPassword" placeholder="Enter secret admin password">
+                </div>
+                <div class="error-msg" id="regError"></div>
+                <div class="success-msg" id="regSuccess"></div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.auth-form').forEach(f => f.style.display = 'none');
+            
+            if (tab === 'login') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('loginForm').style.display = 'block';
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('registerForm').style.display = 'block';
+                toggleBranchField(); // Ensure correct state on load
+            }
+        }
+
+        function toggleBranchField() {
+            const role = document.getElementById('regRole').value;
+            const branchGroup = document.getElementById('branchGroup');
+            const subjectGroup = document.getElementById('subjectGroup');
+            const adminPasswordGroup = document.getElementById('adminPasswordGroup');
+            
+            // Both roles need to select a branch now
+            branchGroup.style.display = 'block';
+            
+            if (role === 'ADMIN') {
+                subjectGroup.style.display = 'block';
+                adminPasswordGroup.style.display = 'block';
+            } else {
+                subjectGroup.style.display = 'none';
+                adminPasswordGroup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
